@@ -567,7 +567,7 @@ function Home() {
                 <button
                   onClick={() =>
                     window.open(
-                      "https://www.linkedin.com/in/armughan-9a07a32b6/",
+                      "https://www.linkedin.com/in/armughan-javed/",
                       "_blank"
                     )
                   }
