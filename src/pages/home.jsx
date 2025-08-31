@@ -323,13 +323,13 @@ function Home() {
       type: "web",
     },
     {
-      imageURL: "../images/Bootstrap.png",
+      imageURL: "../images/bootstrap.png",
       altText: "Bootstrap",
       title: "Bootstrap",
       type: "web",
     },
     {
-      imageURL: "../images/c.webp",
+      imageURL: "../images/C.webp",
       altText: "C",
       title: "C Language",
       type: "others",
