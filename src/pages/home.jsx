@@ -592,7 +592,7 @@ function Home() {
                 <button
                   onClick={() =>
                     window.open(
-                      "https://www.linkedin.com/in/armughan-a86147363/",
+                      "https://github.com/armughan418",
                       "_blank"
                     )
                   }
