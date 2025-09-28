@@ -645,7 +645,7 @@ function Home() {
             transition={{ duration: 1.2 }}
             className="w-full lg:w-1/2 flex justify-center lg:mb-0"
           >
-            <div className="mt-10 w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-yellow-500 rounded-full overflow-hidden shadow-lg flex items-center justify-center">
+            <div className="cursor-pointer mt-10 w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-yellow-500 rounded-full overflow-hidden shadow-lg flex items-center justify-center hover:scale-105 transition-transform duration-300">
               <img
                 src="./images/my-photo2.png"
                 alt="Armughan"
