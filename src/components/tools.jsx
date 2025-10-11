@@ -48,7 +48,7 @@ function Tools() {
       type: "web",
     },
     {
-      imageURL: "../images/Bootstrap.png",
+      imageURL: "../images/bootstrap.png",
       altText: "Bootstrap",
       title: "Bootstrap",
       type: "web",
