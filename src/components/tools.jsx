@@ -66,7 +66,7 @@ function Tools() {
       type: "web",
     },
     {
-      imageURL: "../images/c.webp",
+      imageURL: "../images/C.webp",
       altText: "C",
       title: "C Language",
       type: "others",
