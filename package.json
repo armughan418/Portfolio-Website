@@ -22,7 +22,7 @@
     "react-toastify": "^11.0.5",
     "react-tsparticles": "^2.12.2",
     "styled": "^1.0.0",
-    "styled-components": "^6.1.17",
+    "styled-components": "^6.1.19",
     "tailwind-variants": "^1.0.0",
     "tailwindcss-animate": "^1.0.7",
     "toast": "^0.5.4",

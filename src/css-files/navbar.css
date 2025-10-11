@@ -1,0 +1,37 @@
+/* Smooth slide animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.25s ease-out;
+}
+
+/* Default hidden state for 3 dots menu */
+.dots-menu {
+  display: none;
+}
+
+/* Default visible state for links and button */
+.nav-links,
+.hire-btn {
+  display: flex;
+}
+
+/* Responsive behavior */
+@media (max-width: 1149px) {
+  .nav-links,
+  .hire-btn {
+    display: none !important;
+  }
+  .dots-menu {
+    display: block !important;
+  }
+}

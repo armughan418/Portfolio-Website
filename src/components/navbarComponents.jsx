@@ -1,213 +1,126 @@
-import React, { useState } from 'react';
-import { FaUserGraduate, FaHome, FaCode, FaPhone, FaFileInvoice, FaBars, FaDownload, FaFileDownload, FaCloudDownloadAlt, FaBriefcase, FaArrowAltCircleLeft, FaArrowCircleRight, FaArrowLeft, FaArrowsAltV } from 'react-icons/fa';
-import { FaArrowDownLong, FaArrowDownZA, FaArrowLeftLong, FaArrowPointer, FaArrowRightArrowLeft, FaArrowRightToCity, FaArrowRotateLeft, FaArrowsLeftRight, FaArrowsSpin, FaDiagramProject } from 'react-icons/fa6';
-import { Link as ScrollLink } from 'react-scroll';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { FiDownloadCloud } from 'react-icons/fi';
-import { MdContactPhone, MdContacts, MdWork } from 'react-icons/md';
-import { HiOutlineIdentification } from 'react-icons/hi';
-import { TbMessage2Share } from 'react-icons/tb';
-import { BiBriefcase } from 'react-icons/bi';
-import { GiArrowCluster, GiArrowhead, GiFastArrow } from 'react-icons/gi';
+import React, { useState, useEffect, useRef } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import "../css-files/navbar.css";
 
-const StyledWrapper = styled.div``;
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-const Navbar = () => {
-    const [showSidebar, setShowSidebar] = useState(false);
-    const navigate = useNavigate();
-    const toggleSidebar = () => setShowSidebar(!showSidebar);
+  const navLinks = [
+    { label: "Home", to: "home" },
+    { label: "About", to: "about" },
+    { label: "Academics", to: "acadamics" },
+    { label: "Tools & Technologies", to: "tools" },
+    { label: "Projects", to: "projects" },
+    { label: "Contact", to: "contact" },
+  ];
 
-    return (
-        <StyledWrapper>
-            <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#1a0024] via-[#320979] to-[#240066]">
-                <div className="flex justify-between items-center px-11 h-16">
-                    {/* Logo */}
-                    <div className="flex items-center gap-3">
-                        <img
-                            src="./images/logo1.png"
-                            alt="Logo"
-                            className="w-10 h-10 rounded-full object-cover bg-yellow-500"
-                        />
-                        <h1 className="text-white font-bold text-2xl">Armughan's Portfolio</h1>
-                    </div>
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-                    {/* Nav Links */}
-                    <div className="hidden xl:flex items-center gap-5">
-                        <ScrollLink
-                            to="home"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            Home
-                        </ScrollLink>
-                        <ScrollLink
-                            to="about"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            About Me
-                        </ScrollLink>
-                        <ScrollLink
-                            to="acadamics"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            Academics
-                        </ScrollLink>
-                        <ScrollLink
-                            to="tools"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            Tools & Technologies
-                        </ScrollLink>
-                        <ScrollLink
-                            to="projects"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            Projects
-                        </ScrollLink>
-                        <ScrollLink
-                            to="contact"
-                            smooth={true}
-                            duration={500}
-                            offset={-60}
-                            className="cursor-pointer px-5 py-2 transition ease-in duration-200 hover:bg-yellow-500 hover:text-white text-white"
-                        >
-                            Contact
-                        </ScrollLink>
-                    </div>
+  return (
+    <nav className="navbar fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#1a0024] via-[#320979] to-[#240066] shadow-lg transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3">
+        {/* Logo */}
+        <ScrollLink
+          to="home"
+          smooth={true}
+          duration={500}
+          offset={-60}
+          className="flex items-center gap-3 cursor-pointer"
+        >
+          <img
+            src="./images/logo1.png"
+            alt="Logo"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover bg-yellow-500 p-[2px]"
+          />
+          <h1 className="text-white font-semibold text-lg sm:text-xl md:text-2xl">
+            Armughan’s Portfolio
+          </h1>
+        </ScrollLink>
 
-                    {/* Hamburger Icon */}
-                    <button className="xl:hidden text-white text-2xl" onClick={toggleSidebar}>
-                        <FaBars />
-                    </button>
-                </div>
-            </nav>
+        {/* Desktop Links */}
+        <ul className="nav-links flex gap-6 lg:gap-8 text-white font-medium">
+          {navLinks.map((link, index) => (
+            <li key={index} className="relative group cursor-pointer">
+              <ScrollLink
+                to={link.to}
+                smooth={true}
+                duration={500}
+                offset={-60}
+                className="transition-colors duration-300 group-hover:text-yellow-400"
+              >
+                {link.label}
+              </ScrollLink>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </li>
+          ))}
+        </ul>
 
-            {/* Sidebar */}
-            {showSidebar && (
-                <div className="fixed inset-0 z-40 flex flex-row-reverse">
-                    <div className="bg-white w-64 h-full shadow-lg mt-11">
-                        <div className="px-4 py-4 border-b bg-gradient-to-r from-[#1a0024] via-[#320979] to-[#240066]">
-                            <div className="flex justify-between items-center">
-                                <button className="text-white text-3xl" onClick={toggleSidebar}>
-                                    <FaArrowLeft size={22} className=" font-bold mr-3 text-white mt-6" />
-                                </button>
-                            </div>
-                            <div className="flex justify-center items-center mt-4 flex-col gap-2 cursor-pointer">
-                                <img
-                                    src="./images/my-photo2.png"
-                                    alt="Armughan"
-                                    className="h-24 w-24 rounded-full border-2 border-blue-900 bg-white p-1 object-cover"
-                                />
-                                <h1 className="font-bold text-white text-xl">Armughan</h1>
-                            </div>
-                        </div>
+        {/* Hire Me Button (Desktop) */}
+        <ScrollLink
+          to="contact"
+          smooth={true}
+          duration={500}
+          offset={-60}
+          className="hire-btn px-4 py-2 lg:px-5 rounded-full bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition-all duration-300 cursor-pointer"
+        >
+          Hire Me
+        </ScrollLink>
 
-                        <div className="px-4 py-6">
-                            <ul className="space-y-4">
-                                <li>
-                                    <ScrollLink
-                                        to="home"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2"
-                                        onClick={toggleSidebar}
-                                    >
-                                        <FaHome className="mr-3 text-blue-900" />
-                                        Home
-                                    </ScrollLink>
-                                </li>
-                                <li>
-                                    <ScrollLink
-                                        to="about"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2"
-                                        onClick={toggleSidebar}
-                                    >
-                                        <FaUserGraduate className="mr-3 text-blue-900" />
-                                        About Me
-                                    </ScrollLink>
-                                </li>
-                                <li>
-                                    <ScrollLink
-                                        to="acadamics"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2"
-                                        onClick={toggleSidebar}
-                                    >
-                                        <FaUserGraduate className="mr-3 text-blue-900" />
-                                        Academics
-                                    </ScrollLink>
-                                </li>
-                                <li>
-                                    <ScrollLink
-                                        to="tools"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2"
-                                        onClick={toggleSidebar}
-                                    >
-                                        <FaCode className="mr-3 text-blue-900" />
-                                        Tools & Technologies
-                                    </ScrollLink>
-                                </li>
-                                <li>
-                                    <ScrollLink
-                                        to="projects"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2"
-                                        onClick={toggleSidebar}
-                                    >
-                                        <FaDiagramProject className="mr-3 text-blue-900" />
-                                        Projects
-                                    </ScrollLink>
-                                </li>
-                                <li>
-                                    <ScrollLink
-                                        to="contact"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-60}
-                                        className="cursor-pointer flex items-center text-gray-800 hover:bg-gray-200 rounded-full px-4 py-2 gap-3"
-                                    >
-                                        <TbMessage2Share size={25} className='text-blue-900' />
-                                        Contact Me
-                                    </ScrollLink>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        {/* 3 Dots Menu (Mobile) */}
+        <div className="dots-menu relative" ref={menuRef}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white text-3xl focus:outline-none"
+          >
+            <BsThreeDotsVertical />
+          </button>
 
-                    <div
-                        className="flex-1 bg-black bg-opacity-50"
-                        onClick={toggleSidebar}
-                    ></div>
-                </div>
-            )}
-        </StyledWrapper>
-    );
-};
+          {/* Dropdown Menu */}
+          {menuOpen && (
+            <div
+              className="absolute right-0 mt-3 w-44 rounded-xl shadow-lg py-2 z-50 
+              bg-gradient-to-br from-[#2a0050] via-[#3b0a7a] to-[#1a0035] 
+              backdrop-blur-md border border-white/10 animate-slideDown"
+            >
+              {navLinks.map((link, index) => (
+                <ScrollLink
+                  key={index}
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2 text-sm text-white hover:bg-yellow-400 hover:text-black transition-all duration-200 rounded-lg"
+                >
+                  {link.label}
+                </ScrollLink>
+              ))}
+              <ScrollLink
+                to="contact"
+                smooth={true}
+                duration={500}
+                offset={-60}
+                onClick={() => setMenuOpen(false)}
+                className="block px-4 py-2 mt-1 text-sm text-center font-semibold bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 transition-all duration-200"
+              >
+                Hire Me
+              </ScrollLink>
+            </div>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
+}
 
 export default Navbar;
