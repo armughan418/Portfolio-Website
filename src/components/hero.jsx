@@ -45,18 +45,18 @@ function Hero() {
       id="home"
       className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-[#0f0020] via-[#2a0770] to-[#16004e] text-white px-6 overflow-visible"
     >
-      {/* Background glowing circles (fixed: pointer-events-none) */}
+      {/* Background glowing circles (pointer-events-none to allow clicks) */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-500/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-600/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
 
-      {/* Container aligned with Navbar */}
+      {/* Main Container */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="w-full max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-48 py-10 px-4 md:px-8"
       >
-        {/* Text Section (z-20 for click priority) */}
+        {/* Text Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -66,11 +66,13 @@ function Hero() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
             Hi, I'm <span className="text-yellow-400">Armughan</span>
           </h1>
+
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-200 h-10">
             <span className="border-r-2 border-yellow-400 pr-1">
               {currentText}
             </span>
           </h2>
+
           <p className="text-gray-300 max-w-lg leading-relaxed text-lg sm:text-xl mx-auto lg:mx-0">
             I’m a passionate Full-Stack Developer (MERN). I love building
             modern, fast, and dynamic web experiences.
@@ -103,21 +105,42 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Image Section (lower z-index to avoid blocking) */}
+        {/* Image Section (realistic floating animation + glow) */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2 }}
           className="relative z-10 w-full lg:w-1/2 flex justify-center"
         >
-          <div className="relative group cursor-pointer mt-10 lg:mt-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-yellow-500 hover:scale-105 transition-transform duration-500">
+          <motion.div
+            animate={{
+              y: [0, -25, 0, 10, 0], // floating up & down motion
+              rotate: [0, 2, -2, 1, 0], // gentle rotation
+              boxShadow: [
+                "0px 10px 30px rgba(255, 215, 0, 0.3)",
+                "0px 20px 40px rgba(255, 215, 0, 0.5)",
+                "0px 15px 35px rgba(255, 215, 0, 0.3)",
+              ],
+            }}
+            transition={{
+              duration: 6, // one full float cycle
+              repeat: Infinity, // loop forever
+              ease: "easeInOut",
+            }}
+            whileHover={{
+              scale: 1.07, // slight zoom on hover
+              rotate: 2, // gentle rotation
+              boxShadow: "0px 25px 50px rgba(255, 215, 0, 0.6)", // bright glow
+            }}
+            className="relative group cursor-pointer mt-10 lg:mt-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-yellow-500 transition-transform duration-500"
+          >
             <img
               src="./images/my-photo2.png"
               alt="Armughan"
               className="w-full h-full object-cover object-center group-hover:brightness-110 transition-all duration-300"
             />
             <div className="absolute inset-0 bg-yellow-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-full"></div>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.section>
