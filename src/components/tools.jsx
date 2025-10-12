@@ -144,7 +144,7 @@ function Tools() {
             key={index}
             whileHover={{ scale: 1.08 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="relative group w-32 sm:w-36 h-36 sm:h-40 rounded-2xl bg-gradient-to-br from-[#1c0030] to-[#2e0075] border border-white/10 backdrop-blur-sm flex flex-col items-center justify-center shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(255,215,0,0.25)] transition-all duration-500"
+            className="relative group w-32 sm:w-36 h-36 sm:h-40 rounded-2xl bg-gradient-to-br from-[#1c0030] to-[#2e0075] border border-white/10 backdrop-blur-sm flex flex-col items-center justify-center shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(255,215,0,0.25)] transition-all duration-500 cursor-pointer"
           >
             {/* Light Glow Border */}
             <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-yellow-400/40 transition-all duration-500"></div>
