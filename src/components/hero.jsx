@@ -43,11 +43,11 @@ function Hero() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       id="home"
-      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-[#0f0020] via-[#2a0770] to-[#16004e] text-white px-6"
+      className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-[#0f0020] via-[#2a0770] to-[#16004e] text-white px-6 overflow-visible"
     >
-      {/* Background glowing circles */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-500/20 rounded-full blur-[100px] animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-600/20 rounded-full blur-[100px] animate-pulse"></div>
+      {/* Background glowing circles (fixed: pointer-events-none) */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-500/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-600/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
 
       {/* Container aligned with Navbar */}
       <motion.div
@@ -56,12 +56,12 @@ function Hero() {
         transition={{ duration: 1 }}
         className="w-full max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-48 py-10 px-4 md:px-8"
       >
-        {/* Text Section */}
+        {/* Text Section (z-20 for click priority) */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
+          className="relative z-20 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
             Hi, I'm <span className="text-yellow-400">Armughan</span>
@@ -103,12 +103,12 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Image Section */}
+        {/* Image Section (lower z-index to avoid blocking) */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-full lg:w-1/2 flex justify-center"
+          className="relative z-10 w-full lg:w-1/2 flex justify-center"
         >
           <div className="relative group cursor-pointer mt-10 lg:mt-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-yellow-500 hover:scale-105 transition-transform duration-500">
             <img
