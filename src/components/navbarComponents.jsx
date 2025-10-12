@@ -49,7 +49,7 @@ function Navbar() {
         </ScrollLink>
 
         {/* Desktop Links */}
-        <ul className="nav-links flex gap-6 lg:gap-8 text-white font-medium">
+        <ul className="nav-links hidden md:flex gap-6 lg:gap-8 text-white font-medium">
           {navLinks.map((link, index) => (
             <li key={index} className="relative group cursor-pointer">
               <ScrollLink
@@ -61,7 +61,8 @@ function Navbar() {
               >
                 {link.label}
               </ScrollLink>
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+              {/* Underline expands from center */}
+              <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-500 ease-in-out transform -translate-x-1/2 origin-center group-hover:w-full"></span>
             </li>
           ))}
         </ul>
@@ -72,13 +73,13 @@ function Navbar() {
           smooth={true}
           duration={500}
           offset={-60}
-          className="hire-btn px-4 py-2 lg:px-5 rounded-full bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition-all duration-300 cursor-pointer"
+          className="hidden md:inline-block hire-btn px-4 py-2 lg:px-5 rounded-full bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition-all duration-300 cursor-pointer"
         >
           Hire Me
         </ScrollLink>
 
         {/* 3 Dots Menu (Mobile) */}
-        <div className="dots-menu relative" ref={menuRef}>
+        <div className="dots-menu md:hidden relative" ref={menuRef}>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-white text-3xl focus:outline-none"
