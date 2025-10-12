@@ -42,9 +42,10 @@ function Navbar() {
             alt="Logo"
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover bg-yellow-500 p-[2px]"
           />
-          <h1 className="text-white font-semibold text-lg sm:text-xl md:text-2xl">
-            Armughan’s Portfolio
-          </h1>
+          <span className="font-semibold text-2xl text-white">
+            Armughan’s{" "}
+            <span className="text-yellow-400 text-2xl">Portfolio</span>
+          </span>
         </ScrollLink>
 
         {/* Desktop Links */}
