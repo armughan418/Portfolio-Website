@@ -34,7 +34,7 @@ const Academics = () => {
           <img
             src="./images/my-photo2.png"
             alt="Armughan"
-            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 cursor-pointer"
           />
           <div className="absolute inset-0 rounded-full bg-yellow-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
         </motion.div>
