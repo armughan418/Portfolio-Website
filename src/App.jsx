@@ -3,7 +3,7 @@ import Footer from "./components/footerComponent";
 import Home from "./pages/home";
 import NotFound from "./pages/notFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { Slide, ToastContainer } from "react-toastify";
 import Hero from "./components/hero";
 import About from "./components/about";
 import Acadamics from "./components/acadamics";
@@ -28,7 +28,19 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Slide}
+      />
     </>
   );
 }
