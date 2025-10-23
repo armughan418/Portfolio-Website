@@ -36,7 +36,7 @@ function Contact() {
       id="contact"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a0024] via-[#320979] to-[#240066] text-white px-6 py-20 relative overflow-hidden"
     >
-      {/* Subtle glowing orbs in background */}
+      {/* Background glows */}
       <div className="absolute top-20 left-10 w-40 h-40 bg-yellow-400/10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-10 right-10 w-60 h-60 bg-purple-500/10 blur-3xl rounded-full"></div>
 
@@ -48,63 +48,79 @@ function Contact() {
           </h1>
           <div className="h-1 bg-yellow-500 rounded w-20 mx-auto mt-4 mb-6 shadow-yellow-400 shadow-sm"></div>
           <p className="text-gray-200 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
-            Have a question or want to collaborate? Drop me a message below —
-            I’ll get back to you soon!
+            Have a question or want to collaborate? Drop me a message — I’ll get
+            back to you soon!
           </p>
         </div>
 
         {/* Form */}
-        <form ref={form} onSubmit={sendEmail} className="space-y-6">
+        <form ref={form} onSubmit={sendEmail} className="space-y-8">
           {/* Name and Email */}
-          <div className="flex flex-col sm:flex-row gap-6">
-            <div className="flex-1">
-              <label className="block mb-2 text-sm font-semibold text-yellow-400">
-                Name
-              </label>
+          <div className="flex flex-col sm:flex-row gap-8">
+            {/* Name Field */}
+            <div className="flex-1 relative">
               <input
                 required
                 type="text"
                 name="name"
-                placeholder="Enter your name"
+                id="name"
+                placeholder=" "
                 autoComplete="off"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-500 focus:bg-white focus:text-black outline-none transition-all duration-300 placeholder:text-gray-300 text-white"
+                className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400/60 focus:ring-2 focus:ring-yellow-500 focus:bg-white/20 text-white placeholder-transparent outline-none transition-all duration-300"
               />
-            </div>
-            <div className="flex-1">
-              <label className="block mb-2 text-sm font-semibold text-yellow-400">
-                Email
+              <label
+                htmlFor="name"
+                className="absolute left-4 top-3.5 text-gray-300 text-sm font-semibold transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-yellow-400 peer-focus:text-sm"
+              >
+                Name
               </label>
+            </div>
+
+            {/* Email Field */}
+            <div className="flex-1 relative">
               <input
                 required
                 type="email"
                 name="email"
-                placeholder="Enter your email"
+                id="email"
+                placeholder=" "
                 autoComplete="off"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-500 focus:bg-white focus:text-black outline-none transition-all duration-300 placeholder:text-gray-300 text-white"
+                className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400/60 focus:ring-2 focus:ring-yellow-500 focus:bg-white/20 text-white placeholder-transparent outline-none transition-all duration-300"
               />
+              <label
+                htmlFor="email"
+                className="absolute left-4 top-3.5 text-gray-300 text-sm font-semibold transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-yellow-400 peer-focus:text-sm"
+              >
+                Email
+              </label>
             </div>
           </div>
 
-          {/* Message */}
-          <div>
-            <label className="block mb-2 text-sm font-semibold text-yellow-400">
-              Message
-            </label>
+          {/* Message Field */}
+          <div className="relative">
             <textarea
               required
               name="message"
+              id="message"
               rows="5"
-              placeholder="Write your message..."
+              placeholder=" "
               autoComplete="off"
-              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-500 focus:bg-white focus:text-black outline-none transition-all duration-300 placeholder:text-gray-300 text-white resize-none"
+              className="peer w-full px-4 pt-5 pb-2 rounded-xl bg-white/10 border border-yellow-400/20 focus:border-yellow-400/60 focus:ring-2 focus:ring-yellow-500 focus:bg-white/20 text-white placeholder-transparent outline-none transition-all duration-300 resize-none"
             ></textarea>
+            <label
+              htmlFor="message"
+              className="absolute left-4 top-3.5 text-gray-300 text-sm font-semibold transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-yellow-400 peer-focus:text-sm"
+            >
+              Message
+            </label>
           </div>
 
-          {/* Button */}
+          {/* Submit Button */}
           <div className="text-center mt-8">
             <button
               type="submit"
-              className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden font-semibold tracking-wide text-black bg-yellow-400 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,215,0,0.5)]"
+              disabled={loading}
+              className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden font-semibold tracking-wide text-black bg-yellow-400 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,215,0,0.5)] disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
