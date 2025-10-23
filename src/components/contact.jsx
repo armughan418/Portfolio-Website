@@ -7,7 +7,6 @@ function Contact() {
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  // ✅ Form Validation
   const validateForm = () => {
     const name = form.current["name"].value.trim();
     const email = form.current["email"].value.trim();
