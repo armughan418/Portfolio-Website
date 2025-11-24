@@ -35,7 +35,7 @@ function Project() {
       hash2: "#Bootstrap",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/ecommerce-system",
+      openLink: "https://github.com/armughan418/Ecommerce-Website",
     },
   ];
 
