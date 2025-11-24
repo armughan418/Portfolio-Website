@@ -30,9 +30,9 @@ function Project() {
       image: "./images/ecommerce.png",
       title: "Ecommerce System",
       discription:
-        "A restaurant ecommerce platform with full CRUD operations and an Admin Dashboard for managing orders and products.",
+        "An e-commerce platform with full CRUD operations, a complete cart system, and an Admin Dashboard for managing products and orders. All product images are stored in Cloudinary",
       hash1: "#React",
-      hash2: "#Bootstrap",
+      hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
       openLink: "https://github.com/armughan418/Ecommerce-Website",
