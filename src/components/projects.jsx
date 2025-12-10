@@ -28,14 +28,25 @@ function Project() {
     },
     {
       image: "./images/ecommerce.png",
-      title: "Ecommerce System",
+      title: "Shopverse",
       discription:
-        "An e-commerce platform with full CRUD operations, a complete cart system, and an Admin Dashboard for managing products and orders. All product images are stored in Cloudinary",
+        "Shopverse is an e-commerce platform with full CRUD operations, a complete cart system, and an Admin Dashboard for managing products and orders. All product images are stored in Cloudinary",
       hash1: "#React",
       hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/Ecommerce-Website",
+      openLink: "https://github.com/armughan418/CodeAlpha_task-1",
+    },
+    {
+      image: "./images/ecommerce.png",
+      title: "Connectify",
+      discription:
+        "Connectify is a social media platform with full CRUD operations, a complete cart system, and an Admin Dashboard for managing users, security & view staticstics etc. Pictures/Videos are stored in Cloudinary",
+      hash1: "#React",
+      hash2: "#Tailwind",
+      hash3: "#MongoDB",
+      hash4: "#Express",
+      openLink: "https://github.com/armughan418/CodeAlpha_task-2",
     },
   ];
 
