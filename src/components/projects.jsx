@@ -38,7 +38,7 @@ function Project() {
       openLink: "https://github.com/armughan418/CodeAlpha_task-1",
     },
     {
-      image: "./images/ecommerce.png",
+      image: "./images/social-media.png",
       title: "Connectify",
       discription:
         "Connectify is a social media platform with full CRUD operations, a complete cart system, and an Admin Dashboard for managing users, security & view staticstics etc. Pictures/Videos are stored in Cloudinary",
