@@ -86,7 +86,7 @@ function Hero() {
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-6"
           >
             <button
-              onClick={() => window.open("../files/CV.pdf", "_blank")}
+              onClick={() => window.open("../files/Armughan-CV.pdf", "_blank")}
               className="flex items-center gap-3 bg-yellow-500 hover:bg-yellow-400 text-black font-medium px-7 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
             >
               <FiDownloadCloud size={22} />
