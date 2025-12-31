@@ -35,7 +35,7 @@ function Project() {
       hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/CodeAlpha_task-1",
+      openLink: "https://github.com/armughan418/Shopverse",
     },
     {
       image: "./images/social-media.png",
@@ -46,7 +46,7 @@ function Project() {
       hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/CodeAlpha_task-2",
+      openLink: "https://github.com/armughan418/Connectify",
     },
   ];
 
