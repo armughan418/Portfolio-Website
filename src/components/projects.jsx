@@ -1,6 +1,7 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Radio } from "lucide-react";
 
 function Project() {
   const projects = [
@@ -122,8 +123,8 @@ function Project() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 rounded-full text-black font-semibold transition-all duration-300 shadow-md hover:shadow-yellow-500/30"
                 >
-                  <FaGithub className="w-5 h-5" />
-                  View on GitHub
+                  <Radio className="w-5 h-5" />
+                  Visit Live URL
                 </a>
               </div>
             </div>
