@@ -14,7 +14,7 @@ function Project() {
       hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/Authentication-System",
+      openLink: "https://authentication-system-1-aoh6.onrender.com/",
     },
     {
       image: "./images/eps.jpg",
@@ -36,7 +36,7 @@ function Project() {
       hash2: "#Tailwind",
       hash3: "#MongoDB",
       hash4: "#Express",
-      openLink: "https://github.com/armughan418/Shopverse",
+      openLink: "https://shopverse-clint.onrender.com/",
     },
     {
       image: "./images/social-media.png",
